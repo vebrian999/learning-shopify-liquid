@@ -1,1 +1,5 @@
-"# learning-shopify-liquid" 
+"# learning-shopify-liquid"
+"#run tailwind"
+"##npx tailwindcss -i ./src/tailwind.css -o ./assets/application.css --watch"
+"#run shopify"
+"##shopify theme dev"
