@@ -15,11 +15,12 @@
     {{ 'https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js' | script_tag }}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
-  {% section 'header' %}
+
   <body>
+    {% section 'header' %}
+
     <main role="main">
       {{ content_for_layout }}
     </main>
   </body>
-  {% comment %} {% section 'footer' %} {% endcomment %}
 </html>
