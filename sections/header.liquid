@@ -6,7 +6,7 @@
     <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
       <!-- STORE NAME / STORE LOGO -->
       <div class="flex justify-start lg:flex-1 truncate">
-        <h1 class="text-xl font-bold truncate">{{ shop.name }}</h1>
+        <h1 class="text-xl text-blue-600 font-bold truncate">{{ shop.name }}</h1>
       </div>
 
       <div class="-mr-2 -my-2 ml-3 md:hidden">
@@ -28,7 +28,7 @@
               <button
                 x-on:click="open = !open"
                 type="button"
-                class="inline-flex items-center text-base text-gray-500 hover:text-gray-900"
+                class="inline-flex items-center text-base text-gray-500 hover:text-blue-800  transition-all duration-300"
               >
                 {{ link.title }}
                 {% render 'icon-dropdown' %}
@@ -44,7 +44,7 @@
                     {% for childlink in link.links %}
                       <a href="{{ childlink.url }}" class="-m-3 p-3 flex items start rounded-lg hover:bg-gray-100">
                         <div class="ml-4">
-                          <p class="text-gray-900 text-base font-medium">{{ childlink.title }}</p>
+                          <p class="text-blue-600 text-base font-medium">{{ childlink.title }}</p>
                         </div>
                       </a>
                     {% endfor %}
@@ -54,20 +54,28 @@
             </div>
           {% else %}
             <div class="relative">
-              <a href="{{link.url}}" class="text-base text-gray-500 hover:text-gray-900">{{ link.title }}</a>
+              <a href="{{link.url}}" class="text-base text-gray-500 hover:text-blue-800">{{ link.title }}</a>
             </div>
           {% endif %}
         {% endfor %}
       </nav>
 
       <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5">
-        <a href="{{routes.cart_url}}" class="whitespace-nowrap text-base text-gray-500 hover:text-gray-900">
+        <a href="{{routes.cart_url}}" class="whitespace-nowrap text-base text-blue-600 hover:text-blue-800">
           {% render 'icon-shopping-bag' %}
         </a>
 
         {% if shop.customer_accounts_enabled %}
-          <a href="{{routes.account_login_url}}" class="text-base text-gray-500 hover:text-gray-900">Login</a>
-          <a href="{{routes.account_register_url}}" class="text-base text-gray-500 hover:text-gray-900">Register</a>
+          <a
+            href="{{routes.account_login_url}}"
+            class="text-base text-blue-600 hover:text-blue-800 font-medium transition-all duration-300"
+            >Login</a
+          >
+          <a
+            href="{{routes.account_register_url}}"
+            class="text-base text-blue-600 hover:text-blue-800 font-medium transition-all duration-300"
+            >Register</a
+          >
         {% endif %}
       </div>
     </div>
