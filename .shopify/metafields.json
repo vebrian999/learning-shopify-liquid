@@ -79,6 +79,76 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "instrument-material",
+      "namespace": "shopify",
+      "name": "Instrument material",
+      "description": "Identifies the main material used in the construction of a musical instrument, like maple wood or brass",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "guitar-size",
+      "namespace": "shopify",
+      "name": "Guitar size",
+      "description": "Specifies the size of the guitar, such as full size or 3/4 size",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "neck-color",
+      "namespace": "shopify",
+      "name": "Neck color",
+      "description": "Identifies the color of the neck area on a guitar, such as white or multicolor",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "fingerboard-material",
+      "namespace": "shopify",
+      "name": "Fingerboard material",
+      "description": "Specifies the type of material used for the fingerboard on guitars, such as ebony wood or synthetic",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "neck-material",
+      "namespace": "shopify",
+      "name": "Neck material",
+      "description": "Identifies the material used in the neck of string instruments, like maple wood or rosewood",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "instrument-string-material",
+      "namespace": "shopify",
+      "name": "Instrument string material",
+      "description": "Specifies the composition of musical instrument strings, such as bronze or fluorocarbon",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "instrument-color",
+      "namespace": "shopify",
+      "name": "Instrument color",
+      "description": "Identifies the color of a musical instrument, such as black or silver",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [],
