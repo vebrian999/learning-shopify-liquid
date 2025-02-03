@@ -80,6 +80,8 @@
   <div class="mb-8" id="comment_form">
     {% form 'new_comment', article %}
       <div class="flex-1 mx-auto items-center justify-center max-w-4xl px-4">
+
+      
         {% if form.errors %}
           <div class="border p-5">
             <div class="flex flex-row items-center w-full my-3">
@@ -104,6 +106,8 @@
             <div class="text-sm font-medium ml-3">Your comment has been posted</div>
           </div>
         {% endif %}
+
+        
         <div class="px-1 md:flex mb-3">
           <div class="px-3 md:w-1/2">
             <label for="comment_author" class="text-gray-700 font-medium uppercase text-xs mb-2">Name</label>
