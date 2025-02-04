@@ -14,7 +14,7 @@
     {{ media | video_tag: controls: true, class: 'w-full h-full object-cover' }}
 
   {% when 'model' %}
-    {{ media | model_viewer_tag }}
+    {{ media | model_viewer_tag: class: 'w-full h-80 object-cover' }}
 
   {% else %}
     {{ media | media_tag }}
