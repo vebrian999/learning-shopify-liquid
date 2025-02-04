@@ -1,0 +1,94 @@
+<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+  <h1 class="text-3xl font-bold text-gray-900">Account</h1>
+
+  <div class="block md:flex gap-8 mt-8">
+    {% assign number_of_orders = customer.orders | size %}
+    {% if number_of_orders > 0 %}
+      <div class="w-full my-6 md:my-0">
+        <h2 class="text-2xl font-semibold text-gray-800">Order History</h2>
+
+        {% paginate customer.orders by 10 %}
+          <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            {% for order in customer.orders %}
+              <div class="relative bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="w-full h-56 bg-gray-100 rounded-t-lg overflow-hidden">
+                  {% if order.line_items.first.image %}
+                    <img
+                      class="w-full h-full object-center object-cover"
+                      src="{{ order.line_items.first.image | img_url: 'medium' }}"
+                      alt="{{ order.line_items.first.image.alt }}"
+                      width="100%"
+                      height="100%"
+                    >
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-center object-cover' }}
+                  {% endif %}
+                </div>
+
+                <div class="px-4 py-6">
+                  <div class="flex justify-between items-center">
+                    <h3 class="text-base font-medium text-gray-800">
+                      <a href="{{ order.customer_url }}" class="hover:text-blue-600">{{ order.name }}</a>
+                    </h3>
+                    <p class="text-sm text-gray-500">{{ order.financial_status_label }}</p>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <p class="text-sm text-gray-500">{{ order.fulfillment_status_label }}</p>
+                    <p class="text-lg font-semibold text-gray-900">{{ order.total_price | money }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="mt-6 max-w-6xl mx-auto">
+            {% render 'pagination', pagination: paginate %}
+          </div>
+        {% endpaginate %}
+      </div>
+    {% else %}
+      <div class="w-full h-80 flex items-center justify-center bg-gray-100 rounded-lg shadow-md">
+        <h2 class="text-base md:text-2xl font-medium text-gray-600">You currently don't have any orders</h2>
+      </div>
+    {% endif %}
+
+    <div class="w-full md:w-1/4">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Account Details</h2>
+      <div class="bg-white border-t-2 border-gray-200 p-6 rounded-lg shadow-md">
+        <div class="flex flex-wrap gap-6">
+          <div class="w-full ">
+            <p class="text-sm text-gray-600 ">Name:</p>
+            <p class="text-sm text-gray-600 border-b border-gray-300 pb-2 font-medium">
+              {{ customer.default_address.name }}
+            </p>
+          </div>
+          <div class="w-full ">
+            <p class="text-sm text-gray-600 ">Street Address:</p>
+            <p class="text-sm text-gray-600 border-b border-gray-300 pb-2 font-medium">
+              {{ customer.default_address.street }}
+            </p>
+          </div>
+          <div class="w-full ">
+            <p class="text-sm text-gray-600">City:</p>
+            <p class="text-sm text-gray-600 border-b border-gray-300 pb-2 font-medium">
+              {{ customer.default_address.city }}
+            </p>
+          </div>
+          <div class="w-full">
+            <p class="text-sm text-gray-600 ">Postal Code:</p>
+            <p class="text-sm text-gray-600 border-b border-gray-300 pb-2 font-medium">
+              {{ customer.default_address.zip }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="{{ routes.account_addresses_url }}"
+        class="mt-4 w-full inline-block text-sm text-white bg-gray-800 hover:bg-gray-600 rounded-lg py-2 px-4 shadow-md transition-colors duration-300 ease-in-out text-center"
+      >
+        View addresses
+      </a>
+    </div>
+  </div>
+</div>
